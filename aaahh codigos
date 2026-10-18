@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para o Meu Amor ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+      color: #4a4a4a;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #e63946;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitulo {
+      font-style: italic;
+      color: #777;
+      margin-bottom: 25px;
+    }
+
+    .carta {
+      background: #fff5f5;
+      border-left: 4px solid #e63946;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      font-size: 1.05rem;
+    }
+
+    .galeria {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .foto-romantica {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(230, 57, 70, 0.15);
+      border: 2px solid #ffe3e3;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .foto-romantica:hover {
+      transform: scale(1.1);
+      border-color: #e63946;
+    }
+
+    button {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+    }
+
+    button:hover {
+      background-color: #d62828;
+      transform: scale(1.05);
+    }
+
+    .coracao-animado {
+      position: absolute;
+      color: #e63946;
+      font-size: 1.5rem;
+      animation: subir 2s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes subir {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Para o Amor da Minha Vida, Icaro❤️</h1>
+    <p class="subtitulo">Um cantinho especial feito só para você.</p>
+
+    <div class="carta">
+      <p>Você é muito especial para mim, você é o motivo
+        da minha felicidade, eu te amo muito meu amor, você é 
+        minha alma gêmea, meu pequeno príncipe lindo, meu gatinho fofo. Obrigado por tudo
+        você é o amor da minha vida, o melhor namorado do mundo, espero te amar pro resto da 
+        minha vida, casar e ter filhos com vc, sera vc e eu para todo o sempre, nao importa
+        o q aconteça.
+        
+        Eu te amo, Ícaro
+      </p>
+    </div>
+
+    <div class="galeria">
+      <img src="foto 1.jpeg" alt="" class="foto-romantica">
+      <img src="foto 2.jpeg" alt="" class="foto-romantica">
+      <img src="foto 3.jpeg" alt="" class="foto-romantica">
+    </div>
+
+    <button onclick="soltarCoracao(event)">Clique para ver o amor crescer! </button>
+  </div>
+
+  <script>
+    function soltarCoracao(event) {
+      const btn = event.target;
+      const rect = btn.getBoundingClientRect();
+
+      for (let i = 0; i < 5; i++) {
+        const coracao = document.createElement('div');
+        coracao.classList.add('coracao-animado');
+        coracao.innerHTML = '❤️';
+        
+        const x = event.clientX - rect.left + (Math.random() * 60 - 30);
+        const y = event.clientY - rect.top;
+
+        coracao.style.left = `${x}px`;
+        coracao.style.top = `${y}px`;
+
+        btn.parentElement.appendChild(coracao);
+
+        setTimeout(() => {
+          coracao.remove();
+        }, 2000);
+      }
+    }
+  </script>
+
+</body>
+</html>
